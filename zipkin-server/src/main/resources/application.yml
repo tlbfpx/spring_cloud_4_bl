@@ -1,0 +1,13 @@
+server:
+  port: 9600
+
+spring:
+  application:
+    name: zipkin-server
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: zipkin-server
+  client:
+    service-url:
+      defaultZone:  http://discovery:8761/eureka/

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: hystrix-stream
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: bluser
+    password: bluser
+
+server:
+  port: 8032
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+  instance:
+    prefer-ip-address: true

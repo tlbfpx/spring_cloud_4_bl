@@ -1,0 +1,19 @@
+server:
+  port: 9200
+
+mybatis:
+  type-aliases-package: com.bailian.service.product.model
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-locations: classpath:mybatis/mybatis-config.xml
+
+mapper:
+    mappers:
+        - com.bailian.service.product.util.BaseMapper
+    not-empty: false
+    identity: MYSQL
+
+management:
+  security:
+    enabled:  false
+
+

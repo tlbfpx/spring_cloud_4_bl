@@ -1,0 +1,78 @@
+spring:
+  application:
+    name: product-service
+  profiles:
+    active: local
+
+  cloud:
+    config:
+      name: operate-config
+      #uri: http://config-server:8500
+      profile: local
+      label: master
+      #enabled: true
+      #----------- 使用服务注册中心 start -----------#
+      discovery:
+        enabled: true
+        service-id: config-server
+      #----------- 使用服务注册中心 end   -----------#
+
+      #----------- 重试 start -----------#
+      fail-fast: true
+      retry:
+        max-attempts: 20
+        multiplier: 1.5
+        initial-interval: 1500
+        max-interval: 3000
+
+      #----------- 重试 end  -----------#
+
+      bus:
+        trace:
+          enabled: true
+
+  #<!--   消息总线    -->
+  rabbitmq:
+    host: 10.202.161.200
+    port: 5672
+    username: bluser
+    password: bluser
+  #<!--   消息总线    -->
+
+  #<!-- datasource start -->
+  datasource:
+      url: jdbc:mysql://10.202.161.200:3306/test?useSSL=false
+      username: root
+      password: admin
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+
+      druid:
+        initial-size: 1
+        min-idle: 1
+        max-active: 20
+        test-on-borrow: true
+        stat-view-servlet:
+          allow: true
+  #<!-- datasource end -->
+
+  # zipkin and sleuth start
+  zipkin:
+    base-url: http://zipkin-server:9600/
+    #base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      percentage: 1.0
+  # zipkin and sleuth end
+
+
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

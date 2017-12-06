@@ -1,0 +1,11 @@
+spring.application.name: gateway-service-zuul
+server.port: 9999
+
+
+eureka.client.serviceUrl.defaultZone: http://discovery:8761/eureka/
+
+zuul:
+  routes:
+    api-a:
+      path: /product/**
+      serviceId:  product-service

@@ -1,0 +1,43 @@
+spring:
+  application:
+      name: admin-server
+  mail:
+    host: smtp.qq.com
+    username: 39960768@qq.com
+    password: fbhhmdtktvnabgbb
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: true
+          to: tlbfpx@163.com
+          #cc: 30508728@qq.com
+          #ignore-changes: "UNKNOWN:UP"
+          from: 39960768@qq.com
+          subject: "spring-boot-admin"
+          text: “#{application.name} (#{application.id}) \n status  #{application.healthUrl}”
+          #text: "when service register to eureka server, we will send you a message!"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+server:
+  port: 9800
+management:
+  security:
+    enabled: false
+
+

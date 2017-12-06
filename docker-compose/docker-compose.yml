@@ -1,0 +1,121 @@
+version: "2"
+services:
+
+# ########    eureka server setting start    ########
+#  discovery:
+#    build:
+#      context: ../discovery-server/src/main/docker
+#      dockerfile: Dockerfile
+#    ports:
+#    - "8761:8761"
+#    container_name: "discovery"
+#  ########    eureka server setting end      ########
+#
+#  ########    config server setting start    ########
+#  config-server:
+#      build:
+#        context: ../config-server/src/main/docker
+#        dockerfile: Dockerfile
+#      ports:
+#      - "8500:8500"
+#      #container_name: "operate-client"
+#      links:
+#      - discovery
+#  ########    config server setting end       ########
+#
+#  ########    product server setting start    ########
+#  product-service:
+#    build:
+#      context: ../product-service/src/main/docker
+#      dockerfile: Dockerfile
+#    ports:
+#    - "9200:9200"
+#    container_name: "product-service"
+#    links:
+#    - discovery
+#    - config-server
+#  ########    product server setting end    ########
+
+  ########    product ui setting start    ########
+  product-ui:
+     build:
+       context: ../product-ui/src/main/docker
+       dockerfile: Dockerfile
+     ports:
+     - "9300:9300"
+#     container_name: "product-ui"
+#     links:
+#     - discovery
+#     - product-service
+#  ########    product ui setting end    ########
+#
+# ########    zuul-server setting start    ########
+#  zuul-server:
+#    build:
+#      context: ../zuul-server/src/main/docker
+#      dockerfile: Dockerfile
+#    ports:
+#    - "9999:9999"
+#    container_name: "zuul-server"
+#    links:
+#    - discovery
+#    - product-service
+# ########    zuul-server setting end    ########
+#
+#  ########    hystrix-dashboard setting start    ########
+#  hystrix-dashboard:
+#     build:
+#       context: ../hystrix-dashboard/src/main/docker
+#       dockerfile: Dockerfile
+#     ports:
+#     - "9500:9500"
+#     container_name: "hystrix-dashboard"
+#  ########    hystrix-dashboard setting end    ########
+#
+#  ########    hystrix-turbine setting start    ########
+#  hystrix-turbine:
+#     build:
+#       context: ../hystrix-turbine/src/main/docker
+#       dockerfile: Dockerfile
+#     ports:
+#     - "9501:9501"
+#     container_name: "hystrix-turbine"
+#  ########    hystrix-turbine setting end    ########
+#
+#  ########    zipkin-server setting start    ########
+#  zipkin-server:
+#     build:
+#       context: ../zipkin-server/src/main/docker
+#       dockerfile: Dockerfile
+#     ports:
+#     - "9600:9600"
+#     container_name: "zipkin-server"
+#     links:
+#       - product-service
+#  ########    zipkin-server setting end    ########
+#
+#  ########    admin-server setting end    ########
+#  admin-server:
+#    build:
+#      context: ../admin-server/src/main/docker
+#      dockerfile: Dockerfile
+#    ports:
+#    - "9800:9800"
+#    #container_name: "operate-client"
+#    links:
+#    - discovery
+#    - config-server
+#    - product-service
+#    - product-ui
+#    - zuul-server
+#    - zipkin-server
+#    - hystrix-turbine
+#    - hystrix-dashboard
+#  ########    admin-server setting end    ########
+#
+#
+#
+#networks:
+#  default:
+#    # Use a custom driver
+#    driver: br200
