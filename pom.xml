@@ -19,6 +19,7 @@
         <module>product-service</module>
         <module>zuul-server</module>
         <module>product-ui</module>
+        <module>favorites-service</module>
     </modules>
 
     <parent>
