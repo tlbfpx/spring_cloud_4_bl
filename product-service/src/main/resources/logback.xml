@@ -60,6 +60,26 @@
 		<!--<appender-ref ref="FILE"/>-->
 	<!--</logger>-->
 
+	<!--<appender name="socket"-->
+			  <!--class="net.logstash.logback.appender.LogstashSocketAppender">-->
+		<!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+			<!--<level>INFO</level>-->
+		<!--</filter>-->
+		<!--<host>10.212.161.200</host>-->
+		<!--<port>5044</port>-->
+		<!--<customFields>{"appname":"myapp"}</customFields>-->
+	<!--</appender>-->
+
+	<appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+		<param name="Encoding" value="UTF-8"/>
+		<remoteHost>10.202.161.200</remoteHost>
+		<port>5044</port>
+		<!-- encoder is required -->
+		<encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+	</appender>
+
+
+
 	<!-- mybatis loggers -->
 	<logger name="com.ibatis" level="DEBUG" />
 	<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" />
@@ -67,7 +87,8 @@
 	<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" />
 
 	<root>
-		<level value="INFO" />
-		<appender-ref ref="STDOUT" />
+		<level value="info" />
+		<appender-ref ref="logstash" />
+        <appender-ref ref="STDOUT" />
 	</root>
 </configuration>
