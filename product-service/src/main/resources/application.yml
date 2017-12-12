@@ -1,5 +1,5 @@
 server:
-  port: 9200
+  port: 9700
 
 mybatis:
   type-aliases-package: com.bailian.service.product.model
