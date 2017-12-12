@@ -2,7 +2,7 @@ package com.favorites.comm.filter;
 
 import com.favorites.comm.Const;
 import com.favorites.domain.User;
-import com.favorites.repository.UserRepository;
+import com.favorites.proxy.UserRepository;
 import com.favorites.utils.Des3EncryptionUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;

@@ -1,7 +1,7 @@
 package com.favorites.service.impl;
 
 import com.favorites.domain.Feedback;
-import com.favorites.repository.FeedbackRepository;
+import com.favorites.proxy.FeedbackRepository;
 import com.favorites.service.FeedbackService;
 import com.favorites.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;

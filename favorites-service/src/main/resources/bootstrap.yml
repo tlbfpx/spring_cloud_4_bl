@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: favorites-service
+  profiles:
+    active: local
+
+  datasource:
+      url: jdbc:mysql://10.202.161.200:3306/test?useSSL=false
+      username: root
+      password: admin
+      driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

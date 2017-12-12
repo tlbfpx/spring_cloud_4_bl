@@ -1,7 +1,7 @@
 package com.favorites.service.impl;
 
 import com.favorites.domain.Config;
-import com.favorites.repository.ConfigRepository;
+import com.favorites.proxy.ConfigRepository;
 import com.favorites.service.ConfigService;
 import com.favorites.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;

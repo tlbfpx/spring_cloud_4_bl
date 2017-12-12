@@ -1,8 +1,8 @@
 package com.favorites.service.impl;
 
 import com.favorites.domain.view.IndexCollectorView;
-import com.favorites.repository.CollectorRepository;
-import com.favorites.repository.UserRepository;
+import com.favorites.proxy.CollectorRepository;
+import com.favorites.proxy.UserRepository;
 import com.favorites.service.CollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,6 @@ public class CollectorServiceImpl implements CollectorService {
 
     @Autowired
     private CollectorRepository collectorRepository;
-    @Autowired
     private UserRepository userRepository;
 
 

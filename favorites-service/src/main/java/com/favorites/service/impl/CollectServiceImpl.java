@@ -9,7 +9,7 @@ import com.favorites.domain.enums.CollectType;
 import com.favorites.domain.enums.IsDelete;
 import com.favorites.domain.view.CollectSummary;
 import com.favorites.domain.view.CollectView;
-import com.favorites.repository.*;
+import com.favorites.proxy.*;
 import com.favorites.service.CollectService;
 import com.favorites.service.FavoritesService;
 import com.favorites.service.NoticeService;
@@ -22,8 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -125,7 +125,7 @@ public class CollectServiceImpl extends CacheService implements CollectService {
 	/**
 	 * @author neo
 	 * @date 2016年8月11日
-	 * @param collects
+	 * @param views
 	 * @return
 	 */
 	private List<CollectSummary> convertCollect(Page<CollectView> views, Long userId) {
@@ -149,7 +149,6 @@ public class CollectServiceImpl extends CacheService implements CollectService {
 	/**
 	 * 收藏文章
 	 * @param collect
-	 * @param userId
 	 */
 	@Transactional
 	public void saveCollect(Collect collect) {
@@ -215,7 +214,6 @@ public class CollectServiceImpl extends CacheService implements CollectService {
 	 * @author neo
 	 * @date 2016年8月31日
 	 * @param collect
-	 * @param other
 	 */
 	@Transactional
 	public void otherCollect(Collect collect) {
@@ -247,7 +245,6 @@ public class CollectServiceImpl extends CacheService implements CollectService {
 	/**
 	 * 验证是否重复收藏
 	 * @param collect
-	 * @param userId
 	 * @return
 	 */
 	public boolean checkCollect(Collect collect){

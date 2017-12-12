@@ -2,7 +2,6 @@ package com.favorites.domain;
 
 import com.favorites.domain.enums.FollowStatus;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 
@@ -12,25 +11,24 @@ import java.io.Serializable;
  * @author DingYS
  * 
  */
-@Entity
+
 public class Follow extends Entitys implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue
+
 	private Long id;
-	@Column(nullable = false)
+
 	private Long userId;
-	@Column(nullable = false)
+
 	private Long followId;
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
+
+
 	private FollowStatus status;
-	@Column(nullable = false)
+
 	private Long createTime;
-	@Column(nullable = false)
+
 	private Long lastModifyTime;
-	@Transient
+
 	private String name;
 
 	public Follow() {

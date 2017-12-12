@@ -12,11 +12,11 @@ import javax.transaction.Transactional;
 @RepositoryRestResource(path="user",collectionResourceRel = "user")
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findByUserName(String userName);
+    User findByUserName(@Param("username") String userName);
 
-    User findByUserNameOrEmail(String username, String email);
-    
-    User findByEmail(String email);
+    User findByUserNameOrEmail(@Param("username")String username, @Param("email") String email);
+
+    User findByEmail(@Param("email") String email);
     
     @Modifying(clearAutomatically=true)
     @Transactional
@@ -50,6 +50,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Query("update User set backgroundPicture=:backgroundPicture where id=:id")
     int setBackgroundPicture(@Param("backgroundPicture") String backgroundPicture, @Param("id") Long id);
-
-    User findById(Long id);
+    User findById(@Param("id") Long id);
 }

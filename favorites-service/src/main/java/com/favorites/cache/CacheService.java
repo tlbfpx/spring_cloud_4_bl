@@ -1,7 +1,7 @@
 package com.favorites.cache;
 
 import com.favorites.domain.UrlLibrary;
-import com.favorites.repository.UrlLibraryRepository;
+import com.favorites.proxy.UrlLibraryRepository;
 import com.favorites.utils.HtmlUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
