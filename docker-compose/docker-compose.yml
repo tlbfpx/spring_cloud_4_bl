@@ -92,6 +92,7 @@ services:
 #     container_name: "zipkin-server"
 #     links:
 #       - product-service
+#       - discovery
 #  ########    zipkin-server setting end    ########
 #
 #  ########    admin-server setting end    ########
