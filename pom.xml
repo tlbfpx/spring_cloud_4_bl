@@ -21,6 +21,7 @@
         <module>product-ui</module>
         <module>favorites-service</module>
         <module>favorites-base-service</module>
+        <module>product-client</module>
     </modules>
 
     <parent>

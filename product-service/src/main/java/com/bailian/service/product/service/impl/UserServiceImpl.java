@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,6 +18,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
+        try {
+            Random rand = new Random();
+            long wait = rand.nextInt(3000);
+            Thread.sleep(wait);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return userMapper.selectAll();
     }
 

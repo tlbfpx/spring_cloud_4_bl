@@ -4,6 +4,16 @@ server:
 spring:
   application:
     name: zipkin-server
+
+  #<!--   消息    -->
+  rabbitmq:
+    host: 10.202.161.200
+    port: 5672
+    username: bluser
+    password: bluser
+  #<!--   消息    -->
+
+
 eureka:
   instance:
     prefer-ip-address: false

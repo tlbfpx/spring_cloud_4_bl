@@ -14,7 +14,7 @@ eureka:
   instance:
     prefer-ip-address: true
 turbine:
-  app-config: product-ui
+  app-config: product-client
   cluster-name-expression: "'default'"
 
 

@@ -3,10 +3,10 @@ package com.bailian.zipkin;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import zipkin.server.EnableZipkinServer;
+import org.springframework.cloud.sleuth.zipkin.stream.EnableZipkinStreamServer;
 
 @SpringBootApplication
-@EnableZipkinServer
+@EnableZipkinStreamServer
 @EnableDiscoveryClient
 public class ZipkinServerApplication {
 
