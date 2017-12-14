@@ -1,6 +1,13 @@
 spring:
   application:
     name: product-client
+
+  rabbitmq:
+    host: 10.202.161.200
+    port: 5672
+    username: bluser
+    password: bluser
+
 server:
   port: 9705
 

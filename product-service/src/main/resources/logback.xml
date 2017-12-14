@@ -79,6 +79,7 @@
         <layout>
             <pattern>
                 {
+                "appname": "${APP_NAME}",
                 "time": "%date{ISO8601}",
                 "thread": "%thread",
                 "level": "%level",

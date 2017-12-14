@@ -78,7 +78,40 @@
 		<!--<encoder class="net.logstash.logback.encoder.LogstashEncoder" />-->
 	<!--</appender>-->
 
+	<appender name="RabbitMq" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
+		<layout>
+			<pattern>
+				{
+				"appname": "${APP_NAME}",
+				"time": "%date{ISO8601}",
+				"thread": "%thread",
+				"level": "%level",
+				"class": "%logger{36}",
+				"message": "%message"
+				}
 
+			</pattern>
+
+		</layout>
+		<host>10.202.161.200</host>
+		<port>5672</port>
+		<username>bluser</username>
+		<password>bluser</password>
+		<exchangeType>topic</exchangeType>
+		<exchangeName>test.log</exchangeName>
+		<!--<exchangeType>direct</exchangeType>-->
+		<!--<exchangeName>amq.direct</exchangeName>-->
+
+		<applicationId>product-service</applicationId>
+		<routingKeyPattern>logstash</routingKeyPattern>
+		<generateId>true</generateId>
+		<charset>UTF-8</charset>
+		<durable>true</durable>
+		<abbreviation>36</abbreviation>
+		<deliveryMode>NON_PERSISTENT</deliveryMode>
+		<declareExchange>true</declareExchange>
+
+	</appender>
 
 	<!-- mybatis loggers -->
 	<logger name="com.ibatis" level="DEBUG" />
@@ -88,7 +121,7 @@
 
 	<root>
 		<level value="info" />
-		<!--<appender-ref ref="logstash" />-->
+		<appender-ref ref="RabbitMq" />
         <appender-ref ref="STDOUT" />
 	</root>
 </configuration>

@@ -39,6 +39,23 @@
         </dependency>
 
 
+        <!-- trace by sleuth and rabbitmq start-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-sleuth-stream -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-stream</artifactId>
+            <!--<version>1.3.0.RELEASE</version>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+        </dependency>
+        <!-- trace by sleuth and rabbitmq end-->
         <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
         <dependency>
             <groupId>net.logstash.logback</groupId>
